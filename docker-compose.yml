@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  translate:
+    container_name: translate
+    build: .
+    working_dir: /code/app
+    environment:
+      DEBUG: 1
+      GOOGLE_APPLICATION_CREDENTIALS: /code/app/translate-key.json 
+    volumes:
+      - ./app:/code/app
+    ports:
+      - 8000:8000
+    restart: on-failure

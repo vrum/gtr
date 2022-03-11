@@ -1,0 +1,8 @@
+fastapi==0.75.0
+google-api-core==1.31.5
+google-auth==1.35.0
+google-cloud-core==1.7.2
+google-cloud-translate==2.0.1
+googleapis-common-protos==1.55.0
+requests==2.27.1
+uvicorn==0.17.5

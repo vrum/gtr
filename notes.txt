@@ -1,0 +1,21 @@
+- looked into using the google translate API directly - settled on using the client libraries
+- setting up a google cloud project with translate was a pain - needed a billing account, had trouble enabling it, kept failing
+- looked into python-daemon
+- looked into python subprocesses, pipes, multiprocessing module for the daemon
+- that still left client-server communication to be done, settled on using FastAPI 
+- considered using something like rabbitmq + celery - seemed overkill
+
+DONE
+- server and client python code, no daemon config or shell wrapper for either
+- docker-compose.yml
+
+TODO
+- wrap daemon and client in shell scripts
+- add sysV/systemd configs for daemon
+- cache translated strings in daemon
+- client requests are run synchronously, one per sentence, so the only benefit of subprocesses in server is for multiple simultaneous clients
+- client should probably send out batches of sentences and let the server hand off individual requests to subprocesses; how to handle large files?
+- throttling should be done in server, to handle multiple clients
+- clean up code, add comments
+- tests: incorrect language, unusual characters in file, binary input file, huge file, multiple client processes
+- clean up docker config, some things overlap between yml and Dockerfile  
